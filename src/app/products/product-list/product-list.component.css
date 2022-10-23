@@ -1,0 +1,10 @@
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+
+  width: 800px;
+  border: 1px solid blueviolet;
+}
