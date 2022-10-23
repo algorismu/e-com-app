@@ -1,6 +1,6 @@
 import { Product } from './Product';
 
-export const ProductListMock: Product[] = [
+export const productList: Product[] = [
   {
     id: 1,
     name: 'Book',
