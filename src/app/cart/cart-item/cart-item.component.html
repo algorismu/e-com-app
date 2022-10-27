@@ -1,0 +1,29 @@
+<div class="cart-item">
+  <div class="cart-item-image">
+    <img
+      src="{{ item.product.url }}"
+      alt="{{ item.product.name }}"
+      width="75px"
+      height="130px"
+    />
+  </div>
+  <div class="cart-item-data">
+    <h5>{{ item.product.name }}</h5>
+    <p class="price">
+      {{ item.product.price | currency: "USD":"symbol":".2-2" }}
+    </p>
+    <div class="quantity">
+      <label for="qty">Qty: </label>
+      <input
+        #quantityInput
+        type="number"
+        id="qty"
+        name="qty"
+        min="1"
+        max="10"
+        value="1"
+        (input)="changeQty(quantityInput.valueAsNumber)"
+      />
+    </div>
+  </div>
+</div>
