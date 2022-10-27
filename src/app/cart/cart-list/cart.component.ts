@@ -8,10 +8,14 @@ import { CartItem } from '../models/CartItem.model';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  items!: CartItem[];
+  items: CartItem[] = [];
   subTotal!: number;
 
   constructor(private cartService: CartService) {}
+
+  get isEmpty(): boolean {
+    return this.items.length === 0;
+  }
 
   ngOnInit(): void {
     this.fillCart();

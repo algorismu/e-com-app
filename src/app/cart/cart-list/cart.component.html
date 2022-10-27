@@ -1,12 +1,20 @@
-<cart-item
-  *ngFor="let item of items"
-  [item]="item"
-  (quantityChange)="updateCart($event)"
->
-</cart-item>
+<section *ngIf="isEmpty; else viewCart">
+  <h2>Cart is Empty!</h2>
+</section>
 
-<div class="cart-subtotal">
-  <p>
-    Sub-Total: <span>{{ subTotal | currency: "USD":"symbol":"2.2-2" }}</span>
-  </p>
-</div>
+<ng-template #viewCart>
+  <section class="cart">
+    <cart-item
+      *ngFor="let item of items"
+      [item]="item"
+      (quantityChange)="updateCart($event)"
+    >
+    </cart-item>
+    <div class="cart-subtotal">
+      <p>
+        Sub-Total:
+        <span>{{ subTotal | currency: "USD":"symbol":"2.2-2" }}</span>
+      </p>
+    </div>
+  </section>
+</ng-template>

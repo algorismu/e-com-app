@@ -8,7 +8,7 @@ import { CartItem } from './models/CartItem.model';
   providedIn: 'root',
 })
 export class CartService {
-  private cart: CartItem[] = !environment.production ? fullCart : [];
+  private cart: CartItem[] = [];
 
   add(item: CartItem): void {
     const foundIndex = this.cart.findIndex(
