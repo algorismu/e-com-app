@@ -1,0 +1,12 @@
+<cart-item
+  *ngFor="let item of items"
+  [item]="item"
+  (quantityChange)="updateCart($event)"
+>
+</cart-item>
+
+<div class="cart-subtotal">
+  <p>
+    Sub-Total: <span>{{ subTotal | currency: "USD":"symbol":"2.2-2" }}</span>
+  </p>
+</div>
