@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/Product';
-import { productList } from '../models/Product-List.mock';
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-product-page',
+  selector: 'product-page',
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPageComponent implements OnInit {
   product!: Product;
 
+  constructor(private service: ProductService, private route: ActivatedRoute) {}
+
   ngOnInit(): void {
-    this.product = productList[0];
+    const name = this.route.snapshot.paramMap.get('name');
+
+    if (name) {
+      this.service.findByName(name).subscribe((product) => {
+        this.product = product;
+      });
+    }
   }
 
   addToCart(): void {}

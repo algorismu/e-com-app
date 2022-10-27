@@ -12,4 +12,9 @@ export class ProductService {
   findAll(): Observable<Product[]> {
     return of(this.products);
   }
+
+  findByName(name: string): Observable<Product> {
+    const result = this.products.find((product) => product.name === name);
+    return of(result!);
+  }
 }
