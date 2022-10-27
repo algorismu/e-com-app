@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
+import { StoreHeaderComponent } from './header/store-header/store-header.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ProductsModule, CartModule],
+  declarations: [AppComponent, StoreHeaderComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ProductsModule,
+    CartModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
