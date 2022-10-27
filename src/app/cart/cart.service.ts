@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../products/models/Product';
-import { CartItem } from './models/CartItem';
+import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { fullCart } from './models/full-cart.mock';
+import { CartItem } from './models/CartItem.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart: CartItem[] = [];
+  private cart: CartItem[] = !environment.production ? fullCart : [];
 
   add(item: CartItem): void {
-    const found = this.cart.find(
-      (currentItem) => currentItem.product.name === item.product.name
+    const foundIndex = this.cart.findIndex(
+      (target) => target.product.name === item.product.name
     );
 
-    if (found) {
-      const updated: CartItem = {
-        ...found,
-        quantity: found.quantity + item.quantity,
-      };
-      this.cart = this.cart.filter(
-        (curr) => curr.product.name !== item.product.name
-      );
-      this.cart.push(updated);
-    }
+    if (foundIndex < 0) this.cart.push(item);
+    else this.cart[foundIndex] = item;
+  }
+
+  findAll(): Observable<CartItem[]> {
+    return of(this.cart);
+  }
+
+  calcSubTotalPrice(): Observable<number> {
+    const subTotal = this.cart
+      .map((item) => [item.product.price, item.quantity])
+      .map(([price, quantity]) => price * quantity)
+      .reduce((a, b) => a + b, 0);
+    return of(subTotal);
   }
 }
