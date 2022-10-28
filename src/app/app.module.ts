@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { StoreHeaderComponent } from './header/store-header/store-header.component';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [AppComponent, StoreHeaderComponent],
@@ -14,6 +15,7 @@ import { StoreHeaderComponent } from './header/store-header/store-header.compone
     AppRoutingModule,
     ProductsModule,
     CartModule,
+    OrderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
