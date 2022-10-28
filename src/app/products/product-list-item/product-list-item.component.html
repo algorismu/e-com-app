@@ -10,9 +10,7 @@
     </a>
   </div>
   <h3>{{ item.name }}</h3>
-  <div class="item-price">
-    <p>{{ item.price }}</p>
-  </div>
+  <price [amount]="item.price"></price>
   <div class="order-qty">
     <label for="quantity">Qty:</label>
     <input

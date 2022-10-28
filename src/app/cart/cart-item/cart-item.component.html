@@ -9,9 +9,7 @@
   </div>
   <div class="cart-item-data">
     <h5>{{ item.product.name }}</h5>
-    <p class="price">
-      {{ item.product.price | currency: "USD":"symbol":".2-2" }}
-    </p>
+    <price [amount]="item.product.price"></price>
     <div class="quantity">
       <label for="qty">Qty: </label>
       <input
