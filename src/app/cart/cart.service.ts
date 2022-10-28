@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { fullCart } from './models/full-cart.mock';
 import { CartItem } from './models/CartItem.model';
 
 @Injectable({
@@ -29,5 +27,9 @@ export class CartService {
       .map(([price, quantity]) => price * quantity)
       .reduce((a, b) => a + b, 0);
     return of(subTotal);
+  }
+
+  clear(): void {
+    this.cart = [];
   }
 }
