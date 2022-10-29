@@ -1,12 +1,9 @@
 <div class="cart-item">
-  <div class="cart-item-image">
-    <img
-      src="{{ item.product.url }}"
-      alt="{{ item.product.name }}"
-      width="75px"
-      height="130px"
-    />
-  </div>
+  <product-thumbnail
+    [product]="item.product"
+    [width]="75"
+    [height]="130"
+  ></product-thumbnail>
   <div class="cart-item-data">
     <h5>{{ item.product.name }}</h5>
     <price [amount]="item.product.price"></price>

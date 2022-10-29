@@ -1,14 +1,9 @@
 <div class="list-item">
-  <div class="item-img">
-    <a href="" [routerLink]="['/products', item.name]">
-      <img
-        src="{{ item.url }}"
-        alt="{{ item.name }}"
-        width="220"
-        height="320"
-      />
-    </a>
-  </div>
+  <product-thumbnail
+    [product]="item"
+    [width]="220"
+    [height]="320"
+  ></product-thumbnail>
   <h3>{{ item.name }}</h3>
   <price [amount]="item.price"></price>
   <div class="order-qty">
