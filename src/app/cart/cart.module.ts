@@ -7,6 +7,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { MiscModule } from '../misc/misc.module';
+import { ProductsModule } from '../products/products.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { MiscModule } from '../misc/misc.module';
     CartPageComponent,
     OrderFormComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CurrencyPipe, MiscModule],
+  imports: [CommonModule, ReactiveFormsModule, MiscModule, ProductsModule],
   exports: [
     CartComponent,
     CartItemComponent,

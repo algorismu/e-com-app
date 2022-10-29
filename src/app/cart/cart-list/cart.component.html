@@ -11,10 +11,7 @@
     >
     </cart-item>
     <div class="cart-subtotal">
-      <p>
-        Sub-Total:
-        <span>{{ subTotal | currency: "USD":"symbol":"2.2-2" }}</span>
-      </p>
+      Sub-Total: <inline-price [amount]="subTotal"></inline-price>
     </div>
   </section>
 </ng-template>
