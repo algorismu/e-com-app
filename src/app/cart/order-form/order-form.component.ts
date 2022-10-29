@@ -5,6 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Order } from 'src/app/order/models/Order.model';
+import { OrderService } from 'src/app/order/order.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'order-form',
@@ -18,7 +22,12 @@ export class OrderFormComponent implements OnInit {
     creditCardNumber: FormControl<string | null>;
   }>;
 
-  constructor(form: FormBuilder) {
+  constructor(
+    form: FormBuilder,
+    private cartService: CartService,
+    private orderService: OrderService,
+    private router: Router
+  ) {
     this.orderForm = form.group({
       fullName: form.control('', Validators.required),
       address: form.control('', Validators.required),
@@ -33,6 +42,15 @@ export class OrderFormComponent implements OnInit {
   ngOnInit(): void {}
 
   placeOrder(): void {
-    console.log(this.orderForm.value);
+    const customerName = this.orderForm.getRawValue().fullName!;
+    let amount: number;
+    this.cartService.calcSubTotalPrice().subscribe((total) => (amount = total));
+    const order: Order = {
+      name: customerName,
+      amount: amount!,
+    };
+    this.orderService.save(order);
+    this.cartService.clear();
+    this.router.navigate(['order-success']);
   }
 }
