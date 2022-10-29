@@ -6,7 +6,7 @@ import { Product } from '../models/Product';
   templateUrl: './product-thumbnail.component.html',
   styleUrls: ['./product-thumbnail.component.css'],
 })
-export class ProductImageComponent implements OnInit {
+export class ProductThumbnailComponent implements OnInit {
   @Input() product!: Product;
   @Input() width!: number;
   @Input() height!: number;
