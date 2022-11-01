@@ -1,14 +1,14 @@
 import { productList } from 'src/app/products/models/Product-List.mock';
-import { CartItem } from './CartItem.model';
+import { Item } from './Item.model';
 
-export const cartItem: CartItem = {
+export const cartItem: Item = {
   product: productList[0],
   quantity: 5,
 };
 
-export const fullCart: CartItem[] = productList
+export const fullCart: Item[] = productList
   .map((product) => {
-    const item: CartItem = {
+    const item: Item = {
       product: product,
       quantity: 1,
     };

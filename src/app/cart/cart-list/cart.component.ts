@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { CartItem } from '../models/CartItem.model';
+import { Item } from '../models/Item.model';
 
 @Component({
   selector: 'cart',
@@ -8,7 +8,7 @@ import { CartItem } from '../models/CartItem.model';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  items: CartItem[] = [];
+  items: Item[] = [];
   subTotal!: number;
 
   constructor(private cartService: CartService) {}
@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
     this.updateSubTotal();
   }
 
-  updateCart(item: CartItem): void {
+  updateCart(item: Item): void {
     this.cartService.add(item);
     this.fillCart();
     this.updateSubTotal();

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CartItem } from '../models/CartItem.model';
+import { Item } from '../models/Item.model';
 
 @Component({
   selector: 'cart-item',
@@ -7,8 +7,8 @@ import { CartItem } from '../models/CartItem.model';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() item!: CartItem;
-  @Output() quantityChange: EventEmitter<CartItem> = new EventEmitter();
+  @Input() item!: Item;
+  @Output() quantityChange: EventEmitter<Item> = new EventEmitter();
 
   ngOnInit(): void {}
 

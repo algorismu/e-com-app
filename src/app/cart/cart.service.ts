@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CartItem } from './models/CartItem.model';
+import { Item } from './models/Item.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart: CartItem[] = [];
+  private cart: Item[] = [];
 
-  add(item: CartItem): void {
+  add(item: Item): void {
     const foundIndex = this.cart.findIndex(
       (target) => target.product.name === item.product.name
     );
@@ -17,7 +17,7 @@ export class CartService {
     else this.cart[foundIndex] = item;
   }
 
-  findAll(): Observable<CartItem[]> {
+  findAll(): Observable<Item[]> {
     return of(this.cart);
   }
 
