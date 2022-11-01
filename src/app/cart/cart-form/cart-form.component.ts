@@ -11,11 +11,11 @@ import { OrderService } from 'src/app/order/order.service';
 import { CartService } from '../cart.service';
 
 @Component({
-  selector: 'order-form',
-  templateUrl: './order-form.component.html',
-  styleUrls: ['./order-form.component.css'],
+  selector: 'cart-form',
+  templateUrl: './cart-form.component.html',
+  styleUrls: ['./cart-form.component.css'],
 })
-export class OrderFormComponent implements OnInit {
+export class CartFormComponent implements OnInit {
   orderForm!: FormGroup<{
     fullName: FormControl<string | null>;
     address: FormControl<string | null>;
