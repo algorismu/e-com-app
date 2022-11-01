@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CartComponent } from './cart-list/cart.component';
+import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
