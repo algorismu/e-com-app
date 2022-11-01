@@ -1,4 +1,4 @@
-#product-list {
+#catalogue {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
