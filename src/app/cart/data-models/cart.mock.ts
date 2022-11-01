@@ -1,4 +1,4 @@
-import { productList } from 'src/app/products/models/Product-List.mock';
+import { productList } from 'src/app/products/data-models/Product-List.mock';
 import { Item } from './Item.model';
 
 export const SINGLE_ITEM_CART: Item = {

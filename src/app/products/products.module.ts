@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueItemComponent } from './catalogue-item/catalogue-item.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail.component';
 
@@ -12,15 +12,15 @@ import { MiscModule } from '../misc/misc.module';
 
 @NgModule({
   declarations: [
-    ProductListComponent,
-    ProductListItemComponent,
+    CatalogueComponent,
+    CatalogueItemComponent,
     ProductPageComponent,
     ProductThumbnailComponent,
   ],
   imports: [CommonModule, AppRoutingModule, FormsModule, MiscModule],
   exports: [
-    ProductListComponent,
-    ProductListItemComponent,
+    CatalogueComponent,
+    CatalogueItemComponent,
     ProductPageComponent,
     ProductThumbnailComponent,
   ],

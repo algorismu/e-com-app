@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart/cart.service';
-import { Item } from 'src/app/cart/models/Item.model';
-import { Product } from '../models/Product';
+import { Item } from 'src/app/cart/data-models/Item.model';
+import { Product } from '../data-models/Product';
 
 @Component({
-  selector: 'product-item',
-  templateUrl: './product-list-item.component.html',
-  styleUrls: ['./product-list-item.component.css'],
+  selector: 'catalogue-item',
+  templateUrl: './catalogue-item.component.html',
+  styleUrls: ['./catalogue-item.component.css'],
 })
-export class ProductListItemComponent implements OnInit {
+export class CatalogueItemComponent implements OnInit {
   @Input() item!: Product;
   orderQuantity: number = 1;
 
