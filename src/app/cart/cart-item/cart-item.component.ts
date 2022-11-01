@@ -9,11 +9,16 @@ import { Item } from '../models/Item.model';
 export class CartItemComponent implements OnInit {
   @Input() item!: Item;
   @Output() quantityChange: EventEmitter<Item> = new EventEmitter();
+  @Output() removeItem: EventEmitter<Item> = new EventEmitter();
 
   ngOnInit(): void {}
 
   changeQty(quantity: number): void {
     this.item.quantity = quantity;
     this.quantityChange.emit(this.item);
+  }
+
+  delete(): void {
+    this.removeItem.emit(this.item);
   }
 }

@@ -43,11 +43,10 @@ export class CartFormComponent implements OnInit {
 
   placeOrder(): void {
     const customerName = this.orderForm.getRawValue().fullName!;
-    let amount: number;
-    this.cartService.calcSubTotalPrice().subscribe((total) => (amount = total));
+    const amount = this.cartService.subTotal
     const order: Order = {
       name: customerName,
-      amount: amount!,
+      amount: amount,
     };
     this.orderService.save(order);
     this.cartService.clear();
