@@ -1,8 +1,0 @@
-#order-form form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  height: 300px;
-  border: 1px solid;
-}

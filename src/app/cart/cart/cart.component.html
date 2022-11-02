@@ -1,9 +1,12 @@
-<section *ngIf="isEmpty; else viewCart">
-  <h2>Cart is Empty!</h2>
-</section>
+<section class="flex flex-col items-center gap-y-3">
+  <!-- Empty Cart -->
+  <div *ngIf="isEmpty; else viewCart">
+    <p class="text-xl font-bold">Cart is Empty!</p>
+    <a href="" routerLink="/products">Browse our products</a>
+  </div>
 
-<ng-template #viewCart>
-  <section class="cart">
+  <!-- Full Cart -->
+  <ng-template #viewCart>
     <cart-item
       *ngFor="let item of items"
       [item]="item"
@@ -11,8 +14,8 @@
       (removeItem)="removeFromCart($event)"
     >
     </cart-item>
-    <div class="cart-subtotal">
+    <div class="text-xl font-semibold">
       Sub-Total: <inline-price [amount]="subTotal"></inline-price>
     </div>
-  </section>
-</ng-template>
+  </ng-template>
+</section>

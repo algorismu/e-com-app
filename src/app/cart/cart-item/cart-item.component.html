@@ -1,11 +1,11 @@
-<div class="cart-item">
+<div class="p-4 flex items-center gap-x-3 shadow-lg">
   <product-thumbnail
     [product]="item.product"
-    [width]="75"
-    [height]="130"
+    [width]="80"
+    [height]="140"
   ></product-thumbnail>
-  <div class="cart-item-data">
-    <h5>{{ item.product.name }}</h5>
+  <div class="flex flex-col items-center gap-y-3">
+    <h5 class="text-xl">{{ item.product.name }}</h5>
     <price [amount]="item.product.price"></price>
     <div class="quantity">
       <label for="qty">Qty: </label>
@@ -20,6 +20,8 @@
         (input)="changeQty(quantityInput.valueAsNumber)"
       />
     </div>
-    <button (click)="delete()">Delete</button>
+    <button class="text-sm hover:text-red-600" (click)="delete()">
+      Delete Item
+    </button>
   </div>
 </div>

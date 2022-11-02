@@ -1,17 +1,15 @@
-<section id="cart-form">
-  <form (ngSubmit)="placeOrder()" [formGroup]="orderForm">
-    <div class="user-input">
-      <label for="fullName">Full Name:</label>
-      <input type="text" formControlName="fullName" />
-    </div>
-    <div class="user-input">
-      <label for="address">Address:</label>
-      <input type="text" formControlName="address" />
-    </div>
-    <div class="user-input">
-      <label for="creditCardNumber">Credit Card Number:</label>
-      <input type="text" formControlName="creditCardNumber" />
-    </div>
-    <button type="submit">Place Order</button>
-  </form>
-</section>
+<form (ngSubmit)="placeOrder()" [formGroup]="orderForm" class="flex flex-col gap-y-3">
+  <div class="flex justify-between items-center">
+    <label for="fullName">Full Name:</label>
+    <input type="text" formControlName="fullName" />
+  </div>
+  <div class="flex justify-between items-center">
+    <label for="address">Address:</label>
+    <input type="text" formControlName="address" />
+  </div>
+  <div class="flex justify-between items-center">
+    <label for="creditCardNumber">Credit Card:</label>
+    <input type="text" formControlName="creditCardNumber" />
+  </div>
+  <button type="submit" class="w-1/2 h-8 self-center bg-blue-400 text-white hover:bg-blue-800">Place Order</button>
+</form>
