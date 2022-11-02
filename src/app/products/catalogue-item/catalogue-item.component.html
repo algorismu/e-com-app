@@ -1,21 +1,27 @@
-<div class="list-item">
+<div class="flex flex-col justify-center items-center gap-y-2.5 shadow-md py-5">
   <product-thumbnail
     [product]="item"
     [width]="220"
     [height]="320"
   ></product-thumbnail>
-  <h3>{{ item.name }}</h3>
+  <h3 class="text-lg">{{ item.name }}</h3>
   <price [amount]="item.price"></price>
-  <div class="order-qty">
+  <div class="flex justify-center items-center gap-x-2">
     <label for="quantity">Qty:</label>
     <input
       type="number"
       name="quantity"
       id="quantity"
       value="1"
+      min="1"
       max="10"
       [(ngModel)]="orderQuantity"
     />
   </div>
-  <button (click)="addToCart()">Add to Cart</button>
+  <button
+    class="w-1/2 h-8 text-white font-semibold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+    (click)="addToCart()"
+  >
+    Add to Cart
+  </button>
 </div>

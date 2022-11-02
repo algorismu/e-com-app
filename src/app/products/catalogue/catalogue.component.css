@@ -1,4 +1,4 @@
-#catalogue {
+/* #catalogue {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -7,4 +7,7 @@
 
   width: 800px;
   border: 1px solid blueviolet;
+} */
+catalogue-item {
+  flex: 0 0 30%;
 }
