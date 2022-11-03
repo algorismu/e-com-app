@@ -1,9 +1,12 @@
-<section id="success-page">
-  <h2>Success!</h2>
-  <p>Thank you! {{ name }}</p>
+<section class="w-1/2 m-auto flex flex-col items-center">
+  <h2 class="text-6xl text-blue-400 font-extrabold">Success!</h2>
   <p>
-    Your order of <inline-price [amount]="amount"></inline-price> has been
-    placed successfully.
+    Thank you! <span class="text-xl text-blue-400">{{ name }}</span>
   </p>
-  <p>Shipping may take 2-3 business days.</p>
+  <p>
+    Your order of
+    <inline-price [amount]="amount" class="font-semibold"></inline-price> has
+    been placed successfully.
+  </p>
+  <p>Shipping your order may take 2-3 business days.</p>
 </section>
