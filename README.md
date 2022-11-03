@@ -1,27 +1,38 @@
-# EcommApp
+# E-Commerce App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Description
+
+This project demonstrates a simple _e-commerce_ SPA that comprises a handfull of _pages_ and _features_.
+
+Users can:
+
+- Browse products.
+- View a product page.
+- Add and delete products from cart.
+- Fill their own shipping info.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
-## Code scaffolding
+### Project set up
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Clone the project locally
 
-## Build
+```
+$ git clone
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Install npm dependencies
 
-## Running unit tests
+```
+$ npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run a dev server
 
-## Running end-to-end tests
+```
+$ ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
