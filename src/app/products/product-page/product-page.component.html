@@ -1,21 +1,22 @@
-<section id="product-page">
-  <div class="product-image">
+<section class="w-10/12 m-auto flex justify-center">
+  <!-- Product Image -->
+  <div class="basis-1/3">
     <img
       src="{{ product.url }}"
       alt="{{ product.name }}"
-      width="220"
-      height="320"
+      width="320"
+      class="rounded-md"
     />
   </div>
-
-  <div class="product-data">
-    <header>
-      <h2>{{ product.name }}</h2>
-      <h6>Description</h6>
-      <p>{{ product.description }}</p>
+  <!-- Description & Price -->
+  <div class="basis-5/12 flex flex-col justify-center gap-y-3">
+    <header class="flex flex-col gap-y-3">
+      <h2 class="text-2xl text-blue-400 font-bold">{{ product.name }}</h2>
+      <h6 class="text-sm font-semibold">Description</h6>
+      <p class="text-sm">{{ product.description }}</p>
+      <price [amount]="product.price"></price>
     </header>
-    <price [amount]="product.price"></price>
-    <div class="product-quantity">
+    <div class="flex gap-x-3 items-center">
       <label for="quantity">Qty:</label>
       <input
         type="number"
@@ -27,6 +28,11 @@
         [(ngModel)]="quantity"
       />
     </div>
-    <button (click)="addToCart()">Add to Cart</button>
+    <button
+      class="w-1/2 h-8 text-white font-semibold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+      (click)="addToCart()"
+    >
+      Add to Cart
+    </button>
   </div>
 </section>
