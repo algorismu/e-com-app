@@ -3,40 +3,72 @@
   class="flex flex-col gap-y-3"
   (ngSubmit)="placeOrder()"
 >
-  <div class="flex justify-between items-center">
-    <label for="fullName">Full Name:</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      minlength="3"
-      maxlength="40"
-      required
-      [(ngModel)]="order.name"
-    />
+  <!-- Full Name -->
+  <div class="flex flex-col gap-y-2">
+    <div class="flex justify-between items-center">
+      <label for="fullName">Full Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        minlength="3"
+        maxlength="40"
+        required
+        [(ngModel)]="order.name"
+        #fullName="ngModel"
+      />
+    </div>
+    <div
+      class="self-center text-sm text-red-400"
+      [hidden]="(emptyCart && fullName.pristine) || fullName.valid"
+    >
+      Full name is required.
+    </div>
   </div>
-  <div class="flex justify-between items-center">
-    <label for="address">Address:</label>
-    <input
-      type="text"
-      id="address"
-      name="address"
-      minlength="10"
-      required
-      [(ngModel)]="order.address"
-    />
+
+  <!-- Address -->
+  <div class="flex flex-col gap-y-2">
+    <div class="flex justify-between items-center">
+      <label for="address">Address:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        minlength="10"
+        required
+        [(ngModel)]="order.address"
+        #address="ngModel"
+      />
+    </div>
+    <div
+      class="self-center text-sm text-red-400"
+      [hidden]="(emptyCart && address.pristine) || address.valid"
+    >
+      Full address is required.
+    </div>
   </div>
-  <div class="flex justify-between items-center">
-    <label for="creditCard">Credit Card:</label>
-    <input
-      type="text"
-      id="creditCard"
-      name="creditCard"
-      minlength="16"
-      maxlength="16"
-      required
-      [(ngModel)]="order.creditCard"
-    />
+
+  <!-- Credit Card -->
+  <div class="flex flex-col gap-y-3">
+    <div class="flex justify-between items-center">
+      <label for="creditCard">Credit Card:</label>
+      <input
+        type="text"
+        id="creditCard"
+        name="creditCard"
+        minlength="16"
+        maxlength="16"
+        required
+        [(ngModel)]="order.creditCard"
+        #creditCard="ngModel"
+      />
+    </div>
+    <div
+      class="self-center text-sm text-red-400"
+      [hidden]="(emptyCart && creditCard.pristine) || creditCard.valid"
+    >
+      Credit card number is required.
+    </div>
   </div>
   <button
     type="submit"
@@ -47,11 +79,11 @@
   </button>
 </form>
 
-<section class="DEBUG-OUTPUT">
+<!-- <section class="DEBUG-OUTPUT">
   <p class="text-green-600">
     <span class="font-semibold">// TODO:</span> Delete this debuging output!
   </p>
   <p class="text-red-500">
     {{ order | json }}
   </p>
-</section>
+</section> -->

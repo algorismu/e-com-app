@@ -2,7 +2,9 @@
   <!-- Empty Cart -->
   <div *ngIf="isEmpty; else viewCart">
     <p class="text-xl font-bold">Cart is Empty!</p>
-    <a href="" routerLink="/products">Browse our products</a>
+    <a href="" routerLink="/products" class="text-sm text-blue-500 underline"
+      >Browse our products</a
+    >
   </div>
 
   <!-- Full Cart -->
