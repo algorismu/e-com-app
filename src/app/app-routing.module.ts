@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'products', component: CatalogueComponent },
   { path: 'cart', component: CartPageComponent },
   { path: 'order-success', component: SuccessPageComponent },
+  { path: '**', component: CatalogueComponent },
 ];
 
 @NgModule({
