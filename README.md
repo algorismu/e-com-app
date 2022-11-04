@@ -17,22 +17,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Project set up
 
-- Clone the project locally
+- Clone the project locally.
 
 ```
-$ git clone
+$ git clone https://github.com/algorismu/e-com-app.git
 ```
 
-- Install npm dependencies
+- Install npm dependencies.
 
 ```
 $ npm install
 ```
 
-- Run a dev server
+- Run `JSON` data server. **(A server for serving products data locally )**
+
+```
+$ npm run start:db
+```
+
+- Run `Angular` dev server.
 
 ```
 $ ng serve
 ```
 
-Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Navigate to `http://localhost:4200/`.
