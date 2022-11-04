@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Product } from './data-models/Product';
-import { productList } from './data-models/Product-List.mock';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private products: Product[] = productList;
+  private PRODUCTS_URL = 'http://127.0.0.1:3000/products';
+
+  constructor(private http: HttpClient) {}
 
   findAll(): Observable<Product[]> {
-    return of(this.products);
+    return this.http.get<Product[]>(this.PRODUCTS_URL);
   }
 
-  findByName(name: string): Observable<Product> {
-    const result = this.products.find((product) => product.name === name);
-    return of(result!);
+  findById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.PRODUCTS_URL}/${id}`);
   }
 }

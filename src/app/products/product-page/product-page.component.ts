@@ -17,16 +17,16 @@ export class ProductPageComponent implements OnInit {
   quantity: number = 1;
 
   constructor(
-    private service: ProductService,
-    private cartService: CartService,
+    private products: ProductService,
+    private cart: CartService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const name = this.route.snapshot.paramMap.get('name');
+    const id = this.route.snapshot.paramMap.get('id');
 
-    if (name) {
-      this.service.findByName(name).subscribe((product) => {
+    if (id) {
+      this.products.findById(Number(id)).subscribe((product) => {
         this.product = product;
       });
     }
@@ -38,6 +38,6 @@ export class ProductPageComponent implements OnInit {
       quantity: this.quantity,
     };
 
-    this.cartService.add(item);
+    this.cart.add(item);
   }
 }
