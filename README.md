@@ -29,7 +29,7 @@ $ git clone https://github.com/algorismu/e-com-app.git
 $ npm install
 ```
 
-- Run `JSON` data server. **(A server for serving products data locally )**
+- Run `JSON` data server. **(Run this command in another terminal window)**
 
 ```
 $ npm run start:db
