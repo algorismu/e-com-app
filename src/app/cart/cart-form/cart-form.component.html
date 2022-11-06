@@ -14,15 +14,19 @@
         minlength="3"
         maxlength="40"
         required
-        [(ngModel)]="order.name"
+        [ngModel]="order.name"
+        (ngModelChange)="order.name = $event"
         #fullName="ngModel"
       />
     </div>
     <div
-      class="self-center text-sm text-red-400"
-      [hidden]="(emptyCart && fullName.pristine) || fullName.valid"
+      *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+      class="text-sm text-red-500"
     >
-      Full name is required.
+      <div *ngIf="fullName.errors?.['required']">Full name is required.</div>
+      <div *ngIf="fullName.errors?.['minlength']">
+        Name must be 3 letters or more (i.e. Ali).
+      </div>
     </div>
   </div>
 
@@ -36,15 +40,19 @@
         name="address"
         minlength="10"
         required
-        [(ngModel)]="order.address"
+        [ngModel]="order.address"
+        (ngModelChange)="order.address = $event"
         #address="ngModel"
       />
     </div>
     <div
-      class="self-center text-sm text-red-400"
-      [hidden]="(emptyCart && address.pristine) || address.valid"
+      *ngIf="address.invalid && (address.dirty || address.touched)"
+      class="text-sm text-red-500"
     >
-      Full address is required.
+      <div *ngIf="address.errors?.['required']">Address is required.</div>
+      <div *ngIf="address.errors?.['minlength']">
+        Address must be 10 letters long or more (i.e. 123 Legit street).
+      </div>
     </div>
   </div>
 
@@ -53,37 +61,46 @@
     <div class="flex justify-between items-center">
       <label for="creditCard">Credit Card:</label>
       <input
+        #creditCard="ngModel"
         type="text"
         id="creditCard"
         name="creditCard"
         minlength="16"
         maxlength="16"
         required
-        [(ngModel)]="order.creditCard"
-        #creditCard="ngModel"
+        [ngClass]="{
+          'not-all-digits': !creditCard.pristine && !allDigits
+        }"
+        [ngModel]="order.creditCard"
+        (ngModelChange)="order.creditCard = $event"
       />
     </div>
     <div
-      class="self-center text-sm text-red-400"
-      [hidden]="(emptyCart && creditCard.pristine) || creditCard.valid"
+      *ngIf="
+        (creditCard.invalid || !allDigits) &&
+        (creditCard.dirty || creditCard.touched)
+      "
+      class="text-sm text-red-500"
     >
-      Credit card number is required.
+      <div *ngIf="creditCard.errors?.['required']">
+        Credit card number is required.
+      </div>
+      <div *ngIf="creditCard.errors?.['minlength'] || !allDigits">
+        Number must be 16
+        <strong> digits </strong>
+        long (i.e. 4111111111111111).
+      </div>
     </div>
   </div>
   <button
     type="submit"
-    [disabled]="orderForm.invalid || emptyCart"
+    [disabled]="orderForm.invalid || emptyCart || !allDigits"
     class="w-1/2 h-8 mt-4 self-center bg-blue-800 text-white hover:bg-blue-500 disabled:bg-slate-300"
   >
     Place Order
   </button>
 </form>
 
-<!-- <section class="DEBUG-OUTPUT">
-  <p class="text-green-600">
-    <span class="font-semibold">// TODO:</span> Delete this debuging output!
-  </p>
-  <p class="text-red-500">
-    {{ order | json }}
-  </p>
-</section> -->
+<div class="text-red-400">
+  {{ order | json }}
+</div>

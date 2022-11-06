@@ -33,6 +33,11 @@ export class CartFormComponent implements OnInit {
     return this.cartService.isEmpty;
   }
 
+  get allDigits(): boolean {
+    const regex = new RegExp(/[0-9]{16}/, 'i');
+    return regex.test(this.order.creditCard);
+  }
+
   placeOrder(): void {
     this.cartService.findAll().subscribe((items) => {
       this.order.items = items;
