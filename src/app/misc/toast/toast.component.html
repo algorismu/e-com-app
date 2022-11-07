@@ -1,0 +1,11 @@
+<div
+  [@alert]="showMessage ? 'show' : 'dismiss'"
+  class="w-1/4 h-16 absolute bottom-12 right-0 flex justify-evenly items-center rounded-sm shadow-2xl border-l-4 border-l-black"
+>
+  <p>
+    {{ message }}
+  </p>
+  <button class="text-sm text-blue-400 hover:text-red-400" (click)="showMessage = !showMessage">
+    X <span class="underline"> dismiss </span>
+  </button>
+</div>
