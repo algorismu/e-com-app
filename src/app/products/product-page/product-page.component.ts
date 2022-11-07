@@ -6,6 +6,7 @@ import { ProductService } from '../product.service';
 
 import { Item } from 'src/app/cart/data-models/Item.model';
 import { Product } from '../data-models/Product';
+import { ToastService } from 'src/app/misc/toast/toast.service';
 
 @Component({
   selector: 'product-page',
@@ -19,7 +20,8 @@ export class ProductPageComponent implements OnInit {
   constructor(
     private products: ProductService,
     private cart: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toast: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class ProductPageComponent implements OnInit {
       product: this.product,
       quantity: this.quantity,
     };
-
     this.cart.add(item);
+    this.toast.alert(`Item ${item.product.name} added to cart.`);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from 'src/app/misc/toast/toast.service';
 import { CartService } from '../cart.service';
 import { Item } from '../data-models/Item.model';
 
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
   items: Item[] = [];
   subTotal: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private toast: ToastService) {}
 
   get isEmpty(): boolean {
     return this.cartService.isEmpty;
@@ -29,6 +30,7 @@ export class CartComponent implements OnInit {
   removeFromCart(item: Item): void {
     this.cartService.remove(item);
     this.updateCartItems();
+    this.toast.alert(`Item ${item.product.name} removed from cart.`);
   }
 
   private updateCartItems(): void {
