@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   animate,
   state,
@@ -6,6 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { ToastService } from './toast.service';
 
 @Component({
   selector: 'app-toast',
@@ -15,12 +16,12 @@ import {
     trigger('alert', [
       state('show', style({ transform: 'translateX(-5%)' })),
       state('dismiss', style({ transform: 'translateX(105%)' })),
-      transition('show <=> dismiss', [animate('1500ms ease-in-out')]),
+      transition('show <=> dismiss', [animate('1200ms ease-in-out')]),
     ]),
   ],
 })
 export class ToastComponent implements OnInit {
-  @Input() message = 'Message goes here!';
-  showMessage: boolean = true;
   ngOnInit(): void {}
+
+  constructor(public toast: ToastService) {}
 }
